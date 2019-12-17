@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+img {
+  width: 100px;
+  height: 150px;
+  max-height: 200px;
+  margin-bottom: 3em;
+  border: 3px solid black;
+}
+
+.Navbar {
+  justify-content: flex-end;
+  margin-bottom: 1em;
+}
+
+.Links {
+  color: black;
+}
+
+.Links:hover {
+  color: purple;
+  text-decoration: underline;
+}
+
+.bg {
+  background-image: url("https://www.booksbythefoot.com/shop/pc/catalog/cexotic2_227_thumb.jpg");
+  background-repeat: none;
+}
+
+.text{
+  color:solid black;
+  margin-left: 2em;
+}
+
+.display-3 {
+  color: whitesmoke;
+}
+
+.lead {
+  color: whitesmoke
+}
+
+.mediaBg {
+  background-image: url("https://www.booksbythefoot.com/shop/pc/catalog/cexotic2_227_thumb.jpg");
+  opacity: 0.5;
+}
