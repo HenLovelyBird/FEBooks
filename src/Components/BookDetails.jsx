@@ -23,14 +23,14 @@ class BookDetails extends React.Component {
         </>)
     }
 
-    componentDidMount = async () => {
-        const resp = await fetch ("http://localhost:7000/books")
-        const jsonBooks = await resp.json();
+    // componentDidMount = async () => {
+    //     const resp = await fetch ("http://henibebooks.heroku.com/books")
+    //     const jsonBooks = await resp.json();
 
-        this.setState({
-            books: jsonBooks
-        });
-    }
+    //     this.setState({
+    //         books: jsonBooks
+    //     });
+    // }
 }
 
 export default BookDetails;

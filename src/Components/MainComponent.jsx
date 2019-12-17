@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Row, Col, Input} from 'reactstrap'
+import {Container, Row, Col} from 'reactstrap'
 import MyNavComponent from './MyNavComponent';
 // import MyFooterComponent from './MyFooterComponent';
 import WelcomComponent from './WelcomeComponent';
@@ -7,6 +7,7 @@ import WelcomComponent from './WelcomeComponent';
 // import LatestReleaseComponent from './LatestReleaseComponent';
 // import Comment from './Comment';
 import BookDetails from './BookDetails';
+// import Comment from './Comment';
 
 
 
@@ -14,7 +15,8 @@ class MainComponent extends React.Component {
     state ={ 
         search:'',
         selectedBook: undefined,
-        books: []
+        books: [],
+        comments: []
     }
 
     render() {
@@ -34,18 +36,34 @@ class MainComponent extends React.Component {
         <Comment />
         </Col> */}
         
-            <Input className="my-5" type="text" value={this.state.search} 
+            {/* <Input className="my-5" type="text" value={this.state.search} 
             onChange={(val) => this.setState({search: val.target.value.toLowerCase()})} 
             placeholder="Type to search">
-            </Input>
+            </Input> */}
 
             
-
-                   <Col md="12">
-                    {this.state.books.map((books, index) => 
-                        <BookDetails book={books} key={index} /> 
-                    )}
-                </Col>
+                <Container >
+                    <Row className="md-3">
+                        <Col>
+                        {this.state.books.map((book, index) =><> 
+                        <h6><b>{book.title}</b></h6>
+                        <Row className="ml-2">
+                            <img src={book.img} 
+                            alt="bookcover" 
+                            style={{maxwidth: "100%"}}>
+                            </img>
+                        <Col>
+                        <div key={index}></div>
+                        <div><b>Genre:</b> {book.category}</div>
+                        <div><b>Price:</b> €{book.price}</div>
+                        </Col>
+                        </Row>
+                        </>)}
+                        </Col>
+                    </Row>
+                </Container>
+            
+                
 
                 {/* <Col md="12">
                     {this.state.myArray.map((entry, index) => <h2 key={index}>{entry}</h2>)}
@@ -57,6 +75,24 @@ class MainComponent extends React.Component {
             </Container>
         );
     }
+
+    componentDidMount = async () => {
+        const resp = await fetch ("https://henibebooks.herokuapp.com/books")
+        const jsonBooks = await resp.json();
+
+        this.setState({
+            books: jsonBooks
+        });
+    }
+
+    //     componentDidMount = async() => {
+    //     const response = await fetch ("https://henibebooks.herokuapp.com/comments")
+    //     const jsonComments = await response.json();
+        
+    //     this.setState({
+    //     comments: jsonComments
+    // });
+    // } 
 }
 
 export default MainComponent;
